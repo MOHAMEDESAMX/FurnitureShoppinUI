@@ -15,7 +15,7 @@ class Styles {
   static TextStyle textstyle18 = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w400,
-    color: Color(0xFF808080),
+    color: Color.fromARGB(255, 1, 0, 0),
   );
 
   static TextStyle textstylebuttom18 = const TextStyle(
@@ -34,5 +34,10 @@ class Styles {
     fontSize: 24,
     fontWeight: FontWeight.w700,
     color: Color(0xFF303030),
+  );
+  static TextStyle textstyle14 = const TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: Color(0xff909090),
   );
 }

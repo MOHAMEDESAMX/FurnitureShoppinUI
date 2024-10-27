@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shoppin_ui/core/constants/assets_images.dart';
+import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
 //import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
 import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/login_view.dart';
 
 class BoardingView extends StatelessWidget {
   const BoardingView({super.key});
@@ -58,7 +60,10 @@ class BoardingView extends StatelessWidget {
               height: 55,
               child: CustomButtom(
                 onPressed: () {
-                  //navRplacement(context, LoginView());
+                  navRplacement(
+                    context,
+                    LoginView(),
+                  );
                   //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginView(),),);
                 },
                 text: "Get Started",
