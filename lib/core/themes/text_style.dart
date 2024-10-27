@@ -40,4 +40,5 @@ class Styles {
     fontWeight: FontWeight.w400,
     color: Color(0xff909090),
   );
+  
 }
