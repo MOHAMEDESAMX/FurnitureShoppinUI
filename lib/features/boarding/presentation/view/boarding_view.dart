@@ -62,7 +62,7 @@ class BoardingView extends StatelessWidget {
                 onPressed: () {
                   navRplacement(
                     context,
-                    LoginView(),
+                    const LoginView(),
                   );
                   //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginView(),),);
                 },

@@ -3,9 +3,9 @@ import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 
 class CustomButtom extends StatelessWidget {
   const CustomButtom(
-      {super.key, required this.text, this.onPressed, this.textStyle});
+      {super.key, required this.text, required this.onPressed, this.textStyle});
   final String text;
-  final void Function()? onPressed;
+  final void Function() onPressed;
   final TextStyle? textStyle;
 
   @override

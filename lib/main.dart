@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shoppin_ui/features/boarding/presentation/view/boarding_view.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture_shoppin_ui/features/home/presentation/view/main_screen_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,9 +12,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BoardingView(),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              textTheme: GoogleFonts.nunitoSansTextTheme(),
+            ),
+            home: const MainScreen(),
+          );
+        });
   }
 }

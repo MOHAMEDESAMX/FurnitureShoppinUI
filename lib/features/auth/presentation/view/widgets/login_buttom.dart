@@ -24,12 +24,13 @@ class LoginButtom extends StatelessWidget {
           onPressed: () {
             if (globalKey.currentState!.validate()) {
               if (!emailController.text.contains("@")) {
+              
                 //tosto
               } else if (passwordController.text.length < 8) {
                 //tosto
-              } else {
-                onSuccess;
               }
+            } else {
+              onSuccess;
             }
           },
           text: "Log in",

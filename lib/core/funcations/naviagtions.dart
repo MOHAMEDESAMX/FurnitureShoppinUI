@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 void navRplacement(context, widget) {
   Navigator.of(context)
@@ -11,4 +12,21 @@ void navpush(context, widget) {
       builder: (context) => widget,
     ),
   );
+}
+
+void navpewScreen(context, widget) {
+  PersistentNavBarNavigator.pushNewScreen(
+    context,
+    screen: widget,
+    withNavBar: false, // This hides the BottomNavigationBar on ProductView
+    pageTransitionAnimation: PageTransitionAnimation.fade, // Optional animation
+  );
+}
+
+void mySnakeBar(context, String text, Color color) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(text),
+    duration: const Duration(seconds: 3),
+    backgroundColor: color,
+  ));
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/email_filed.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/forgot_password_filed.dart';
@@ -6,6 +7,7 @@ import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/log
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/or_divider.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/password_filed.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/signup_row.dart';
+import 'package:furniture_shoppin_ui/features/home/presentation/view/home_view.dart';
 import 'package:gap/gap.dart';
 
 class LoginBody extends StatelessWidget {
@@ -50,7 +52,10 @@ class LoginBody extends StatelessWidget {
                   globalKey: globalKey,
                   passwordController: passwordController,
                   onSuccess: () {
-                    //navRplacement(context, HomeView());
+                    navRplacement(
+                      context,
+                      const HomeView(),
+                    );
                   },
                 ),
                 const Gap(15),
