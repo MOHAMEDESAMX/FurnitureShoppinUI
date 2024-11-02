@@ -13,96 +13,169 @@ class MyCartView extends StatefulWidget {
   @override
   State<MyCartView> createState() => _MyCartViewState();
 }
+
 class _MyCartViewState extends State<MyCartView> {
   double itemsCount = 0;
+  final TextEditingController promocode =TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: const CartAppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ListView.separated(
-            itemBuilder: (context, index) {
-              final myCart = addedToCart[index];
-              return (myCart.title.isEmpty)
-                  ? const Center(
-                      child: Text(
-                        "nothing here ",
-                        style: TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.bold),
-                      ),
-                    )
-                  : Container(
-                      width: double.infinity,
-                      height: 100.h,
-                      padding: const EdgeInsets.all(3),
-                      margin: const EdgeInsets.all(5),
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: 100.w,
-                            height: 100.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
-                            child: Image.asset(
-                              myCart.imageUrl,
-                            ),
-                          ),
-                          Gap(20.w),
-                          Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  myCart.title,
-                                  style: Styles.textstylecard14,
-                                ),
-                                Text(
-                                  myCart.price,
-                                  style: Styles.textstyle16,
-                                ),
-                                const ItemsCount(),
-                              ],
-                            ),
-                          ),
-                          Gap(20.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              IconButton.outlined(
-                                icon: const Icon(
-                                  Icons.close,
-                                ),
-                                onPressed: () {
-                                  removeFromCart(index);
-                                  setState(() {});
-                                  mySnakeBar(
-                                    context,
-                                    "Removed Succeefuly",
-                                    Colors.red,
-                                  );
-                                },
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: height - 314,
+                  child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      final myCart = addedToCart[index];
+                      return (myCart.title.isEmpty)
+                          ? const Center(
+                              child: Text(
+                                "nothing here ",
+                                style: TextStyle(
+                                    fontSize: 40, fontWeight: FontWeight.bold),
                               ),
-                            ],
-                          )
+                            )
+                          : Container(
+                              width: double.infinity,
+                              height: 100.h,
+                              padding: const EdgeInsets.all(3),
+                              margin: const EdgeInsets.all(5),
+                              color: Colors.white,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 100.w,
+                                    height: 100.h,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8.r),
+                                    ),
+                                    child: Image.asset(
+                                      myCart.imageUrl,
+                                    ),
+                                  ),
+                                  Gap(20.w),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          myCart.title,
+                                          style: Styles.textstylecard14,
+                                        ),
+                                        Text(
+                                          myCart.price,
+                                          style: Styles.textstyle16,
+                                        ),
+                                        const ItemsCount(),
+                                      ],
+                                    ),
+                                  ),
+                                  Gap(20.w),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      IconButton.outlined(
+                                        icon: Icon(
+                                          Icons.close,
+                                          size: 20.r,
+                                        ),
+                                        onPressed: () {
+                                          removeFromCart(index);
+                                          setState(() {});
+                                          mySnakeBar(
+                                            context,
+                                            "Removed Succeefuly",
+                                            Colors.red,
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            );
+                    },
+                    separatorBuilder: ((context, index) => Gap(8.h)),
+                    itemCount: addedToCart.length,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextField(
+                        controller: promocode,
+                        decoration: InputDecoration(
+                          hintText: "Enter your promo code",
+                          suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.arrow_forward,
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      Gap(15.h),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Total:",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "0",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
                         ],
                       ),
-                    );
-            },
-            separatorBuilder: ((context, index) => Gap(8.h)),
-            itemCount: addedToCart.length,
+                      Gap(15.h),
+                      ElevatedButton(
+                        
+                        onPressed: () {
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          backgroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Check out",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
+      /*bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -151,7 +224,7 @@ class _MyCartViewState extends State<MyCartView> {
             ),
           ],
         ),
-      ),
+      ),*/
     );
   }
 }

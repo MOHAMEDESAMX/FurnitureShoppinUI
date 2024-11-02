@@ -18,13 +18,13 @@ class SliderView extends StatelessWidget {
       padding: const EdgeInsets.only(top: 30, left: 5),
       child: Column(
         children: [
-          Gap(100.h),
+          Gap(80.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleAvatar(
-                radius: 40.r,
+                radius: 35.r,
                 backgroundImage: const AssetImage(AssetsImages.me),
               ),
               Gap(10.w),
@@ -35,44 +35,44 @@ class SliderView extends StatelessWidget {
                     "Mohamed Essam",
                     style: Styles.textstyle16,
                   ),
-                  Gap(20.h),
+                  Gap(10.h),
                   Text("mohamedessam.5530@gmail.com",
                       style: Styles.textstyle12),
                 ],
               )
             ],
           ),
-          Gap(40.h),
+          Gap(20.h),
           SliderListTile(
             onTap: () {},
             title: "My orders",
             subtitle: "Already have 10 orders",
           ),
-          Gap(20.h),
+          Gap(10.h),
           SliderListTile(
             onTap: () {},
             title: "Shipping Addresses",
             subtitle: "03 Addresses",
           ),
-          Gap(20.h),
+          Gap(10.h),
           SliderListTile(
             onTap: () {},
             title: "Payment Method",
             subtitle: "You have 2 cards",
           ),
-          Gap(20.h),
+          Gap(10.h),
           SliderListTile(
             onTap: () {},
             title: "My reviews",
             subtitle: "Reviews for 5 items",
           ),
-          Gap(20.h),
+          Gap(10.h),
           SliderListTile(
             onTap: () {},
             title: "Setting",
             subtitle: "Notification, Password, FAQ, Contact",
           ),
-          Gap(20.h),
+          Gap(10.h),
         ],
       ),
     );
