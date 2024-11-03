@@ -12,5 +12,7 @@ class AssetsIcons {
   static const lamp = "assets/icons/lamp-svgrepo-com.svg";
   static const shopping = "assets/icons/shopping_bag.svg";
   static const edit ="assets/icons/edit-2.svg";
+  static const group ="assets/icons/Group.svg";
+  static const checkmark ="assets/icons/checkmark-circle-fill.svg";
   
 }

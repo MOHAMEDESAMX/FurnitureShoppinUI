@@ -40,11 +40,21 @@ class Styles {
     fontWeight: FontWeight.w600,
     color: const Color(0xFF909090),
   );
+  static TextStyle textstylecheckout18 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w400,
+    color: const Color(0xFF606060),
+  );
 
   static TextStyle textstyleauth30 = GoogleFonts.merriweather(
     fontSize: 30.sp,
     fontWeight: FontWeight.w400,
     color: const Color(0xFF909090),
+  );
+  static TextStyle textstyle38 = GoogleFonts.merriweather(
+    fontSize: 38.sp,
+    fontWeight: FontWeight.w700,
+    color: const Color(0xFF303030),
   );
 
   static TextStyle textstyleauth24 = GoogleFonts.merriweather(

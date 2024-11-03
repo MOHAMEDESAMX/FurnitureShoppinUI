@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
 import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
-import 'package:furniture_shoppin_ui/features/home/presentation/view/success_order_view.dart';
 
-class SubmitOrderButtom extends StatelessWidget {
-  const SubmitOrderButtom({
+class TrackOrderButtom extends StatelessWidget {
+  const TrackOrderButtom({
     super.key,
   });
 
@@ -15,10 +13,8 @@ class SubmitOrderButtom extends StatelessWidget {
       width: double.infinity,
       height: 60.h,
       child: CustomButtom(
-        onPressed: () {
-          navRplacement(context, const SuccessOrderView());
-        },
-        text: 'SUBMIT ORDER',
+        onPressed: () {},
+        text: "Track your orders",
       ),
     );
   }
