@@ -35,6 +35,11 @@ class Styles {
     fontWeight: FontWeight.w700,
     color: const Color(0xFF303030),
   );
+  static TextStyle textstylecheck18 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+    color: const Color(0xFF909090),
+  );
 
   static TextStyle textstyleauth30 = GoogleFonts.merriweather(
     fontSize: 30.sp,

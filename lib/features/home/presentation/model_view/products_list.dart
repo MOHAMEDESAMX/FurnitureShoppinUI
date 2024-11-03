@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 class Products {
   final String title;
   final String price;
@@ -52,7 +54,7 @@ List<Products> addedToCart = [
 
 void addToCart(Products product) {
   addedToCart.add(product);
-  print("${product.title} added to cart.");
+  log("${product.title} added to cart.");
 }
 void removeFromCart(index){
   addedToCart.removeAt(index);

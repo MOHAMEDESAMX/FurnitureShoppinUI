@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
+import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/model_view/products_list.dart';
+import 'package:furniture_shoppin_ui/features/home/presentation/view/check_out_view.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/cart_app_bar.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/items_count.dart';
 import 'package:gap/gap.dart';
@@ -88,6 +90,7 @@ class _MyCartViewState extends State<MyCartView> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       IconButton.outlined(
+                                        
                                         icon: Icon(
                                           Icons.close,
                                           size: 20.r,
@@ -149,23 +152,13 @@ class _MyCartViewState extends State<MyCartView> {
                         ],
                       ),
                       Gap(15.h),
-                      ElevatedButton(
-                        
-                        onPressed: () {
-                        },
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "Check out",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
-                        ),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 50.h,
+                        child: CustomButtom(
+                          onPressed: (){
+                            navpush(context, const CheckOutView(),);
+                          },text: "Check out",),
                       ),
                     ],
                   ),
@@ -175,56 +168,6 @@ class _MyCartViewState extends State<MyCartView> {
           ),
         ),
       ),
-      /*bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Enter your promo code",
-                suffixIcon: const Icon(Icons.arrow_forward),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Total:",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "0",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // Checkout action
-              },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                backgroundColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: const Center(
-                child: Text(
-                  "Check out",
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),*/
     );
   }
 }
