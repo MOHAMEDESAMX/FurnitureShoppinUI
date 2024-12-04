@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1088895098059",
+    "project_id": "furniture-shopping-a552f",
+    "storage_bucket": "furniture-shopping-a552f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088895098059:android:b3e859442f0e9fcc6c4f4e",
+        "android_client_info": {
+          "package_name": "com.example.furniture_shoppin_ui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgyURVXtcFN-ZlxtlF4MagUsKyzKOIYs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

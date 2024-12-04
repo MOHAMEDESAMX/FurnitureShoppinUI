@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture_shoppin_ui/core/funcations/setup_firebase.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/main_screen_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+void main() async {
+  await setups();
   runApp(const MainApp());
+}
+
+Future<void> setups() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupFirebase();
 }
 
 class MainApp extends StatelessWidget {
