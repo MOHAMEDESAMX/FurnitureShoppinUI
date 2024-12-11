@@ -18,8 +18,8 @@ void navpewScreen(context, widget) {
   PersistentNavBarNavigator.pushNewScreen(
     context,
     screen: widget,
-    withNavBar: false, // This hides the BottomNavigationBar on ProductView
-    pageTransitionAnimation: PageTransitionAnimation.fade, // Optional animation
+    withNavBar: false,
+    pageTransitionAnimation: PageTransitionAnimation.fade,
   );
 }
 

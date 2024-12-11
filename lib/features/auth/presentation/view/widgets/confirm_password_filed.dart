@@ -40,7 +40,7 @@ class _ConfirmPasswordFiledState extends State<ConfirmPasswordFiled> {
               },
             ),
       validator: (value) {
-        if (widget.confirmPasswordController != widget.passwordController) {
+        if (widget.confirmPasswordController.text != widget.passwordController.text) {
           return "password not match";
         }
         return null;

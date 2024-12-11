@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture_shoppin_ui/core/funcations/register_services.dart';
 import 'package:furniture_shoppin_ui/core/funcations/setup_firebase.dart';
+import 'package:furniture_shoppin_ui/features/boarding/presentation/view/boarding_view.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/main_screen_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,6 +15,7 @@ void main() async {
 Future<void> setups() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupFirebase();
+  await registerServices();
 }
 
 class MainApp extends StatelessWidget {
@@ -29,7 +33,10 @@ class MainApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.nunitoSansTextTheme(),
             ),
-            home: const MainScreen(),
+            home: (FirebaseAuth.instance.currentUser != null &&
+                    FirebaseAuth.instance.currentUser!.emailVerified)
+                ? const MainScreen()
+                : const BoardingView(),
           );
         });
   }

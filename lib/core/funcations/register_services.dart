@@ -6,4 +6,5 @@ Future<void> registerServices() async {
   getIt.registerLazySingleton<AuthService>(
     () => AuthService(),
   );
+
 }
