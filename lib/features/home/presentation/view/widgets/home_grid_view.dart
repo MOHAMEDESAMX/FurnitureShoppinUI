@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_shoppin_ui/core/constants/assets_icons.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/model_view/products_list.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/product_view.dart';

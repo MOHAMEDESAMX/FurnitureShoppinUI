@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/forget_password_view.dart';
 
@@ -21,7 +21,7 @@ class ForgotPasswordFiled extends StatelessWidget {
       ),
       child: Text(
         "Forgot Password",
-        style: Styles.textstylebuttom18.copyWith(
+        style: Styles.textstylebutton18.copyWith(
           color: const Color(0xff303030),
         ),
       ),

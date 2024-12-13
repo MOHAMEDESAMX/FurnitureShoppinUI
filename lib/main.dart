@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_shoppin_ui/core/funcations/register_services.dart';
-import 'package:furniture_shoppin_ui/core/funcations/setup_firebase.dart';
+import 'package:furniture_shoppin_ui/core/functions/register_services.dart';
+import 'package:furniture_shoppin_ui/core/functions/setup_firebase.dart';
 import 'package:furniture_shoppin_ui/features/boarding/presentation/view/boarding_view.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/main_screen_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,9 +20,27 @@ Future<void> setups() async {
   await registerServices();
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance
+  .authStateChanges()
+  .listen((User? user) {
+    if (user == null) {
+      log('------------User is currently signed out!');
+    } else {
+      log('------------User is signed in!');
+    }
+  });
+  }
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

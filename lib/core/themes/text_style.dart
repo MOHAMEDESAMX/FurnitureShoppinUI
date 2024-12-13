@@ -25,7 +25,7 @@ class Styles {
     color: Colors.black,
   );
 
-  static TextStyle textstylebuttom18 = TextStyle(
+  static TextStyle textstylebutton18 = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w600,
     color: const Color(0xFFFFFFFF),
@@ -91,5 +91,9 @@ class Styles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
     color: const Color(0xff808080),
+  );
+  static TextStyle textstyletoast14 = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
   );
 }

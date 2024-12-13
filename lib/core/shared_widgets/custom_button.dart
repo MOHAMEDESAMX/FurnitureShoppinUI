@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 
-class CustomButtom extends StatelessWidget {
-  const CustomButtom(
+class CustomButton extends StatelessWidget {
+  const CustomButton(
       {super.key, required this.text, required this.onPressed, this.textStyle});
   final String text;
   final void Function() onPressed;
@@ -20,7 +20,7 @@ class CustomButtom extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: textStyle ?? Styles.textstylebuttom18,
+        style: textStyle ?? Styles.textstylebutton18,
       ),
     );
   }

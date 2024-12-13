@@ -1,8 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
+import 'dart:developer';
 
-class LoginButtom extends StatelessWidget {
-  const LoginButtom({
+import 'package:flutter/material.dart';
+import 'package:furniture_shoppin_ui/core/functions/show_toast.dart';
+import 'package:furniture_shoppin_ui/core/shared_widgets/custom_button.dart';
+
+class LoginButton extends StatelessWidget {
+  const LoginButton({
     super.key,
     required this.emailController,
     required this.globalKey,
@@ -20,17 +23,22 @@ class LoginButtom extends StatelessWidget {
       child: SizedBox(
         height: 50,
         width: 280,
-        child: CustomButtom(
+        child: CustomButton(
           onPressed: () {
             if (globalKey.currentState!.validate()) {
+              log(globalKey.currentState!.validate().toString());
               if (!emailController.text.contains("@")) {
-              
+                showToast(context: context, text: "email should contain @");
+                log('email not valid contain @');
                 //tosto
-              } else if (passwordController.text.length < 8) {
+              } else if (passwordController.text.length < 4) {
+                showToast(context: context, text: "password should be at lest 4 characters");
+                log('pass not valid length');
                 //tosto
+              } else {
+                log("onsuccess");
+                onSuccess();
               }
-            } else {
-              onSuccess;
             }
           },
           text: "Log in",

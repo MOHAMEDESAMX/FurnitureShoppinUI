@@ -39,7 +39,7 @@ class _ItemsCountState extends State<ItemsCount> {
           ),
           Text(
             "${itemsCount.toInt()}",
-            style: Styles.textstylebuttom18.copyWith(color: Colors.black),
+            style: Styles.textstylebutton18.copyWith(color: Colors.black),
           ),
           IconButton(
             padding: EdgeInsets.zero,

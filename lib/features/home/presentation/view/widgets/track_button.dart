@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
+import 'package:furniture_shoppin_ui/core/shared_widgets/custom_button.dart';
 
-class TrackOrderButtom extends StatelessWidget {
-  const TrackOrderButtom({
+class TrackOrderButton extends StatelessWidget {
+  const TrackOrderButton({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class TrackOrderButtom extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       height: 60.h,
-      child: CustomButtom(
+      child: CustomButton(
         onPressed: () {},
         text: "Track your orders",
       ),

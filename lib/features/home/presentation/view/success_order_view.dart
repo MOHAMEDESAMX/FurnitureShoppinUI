@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_shoppin_ui/core/constants/assets_icons.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
-import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/back_home_buttom.dart';
-import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/track_buttom.dart';
+import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/back_home_button.dart';
+import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/track_button.dart';
 import 'package:gap/gap.dart';
 
 class SuccessOrderView extends StatelessWidget {
@@ -39,8 +39,8 @@ class SuccessOrderView extends StatelessWidget {
               style: Styles.textstylecheckout18,
             ),
             Gap(20.h),
-            const TrackOrderButtom(),
-            const BackHomeButtom(),
+            const TrackOrderButton(),
+            const BackHomeButton(),
           ]),
         ),
       ),

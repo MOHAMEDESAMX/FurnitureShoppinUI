@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture_shoppin_ui/core/constants/assets_images.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
+import 'package:furniture_shoppin_ui/core/functions/show_toast.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/login_view.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/slider_list_tile.dart';
 import 'package:gap/gap.dart';
 
@@ -68,7 +72,26 @@ class SliderView extends StatelessWidget {
           ),
           Gap(10.h),
           SliderListTile(
-            onTap: () {},
+            onTap: () async {
+              await FirebaseAuth.instance.signOut();
+              if (context.mounted) {
+                showToast(
+                  context: context,
+                  text: "Successfully Logged Out",
+                  color: Colors.green,
+                  icon: Icons.check,
+                );
+                navRplacement(context, const LoginView());
+              } else {
+                showToast(
+                  // ignore: use_build_context_synchronously
+                  context: context,
+                  text: "Failed to Logged Out",
+                  color: Colors.red,
+                  icon: Icons.error,
+                );
+              }
+            },
             title: "Setting",
             subtitle: "Notification, Password, FAQ, Contact",
           ),

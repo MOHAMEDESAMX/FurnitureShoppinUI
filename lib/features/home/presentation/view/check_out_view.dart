@@ -5,7 +5,7 @@ import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/del
 import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/editing_row.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/payment_row.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/shipping_address.dart';
-import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/submit_order_buttom.dart';
+import 'package:furniture_shoppin_ui/features/home/presentation/view/widgets/submit_order_button.dart';
 import 'package:gap/gap.dart';
 
 class CheckOutView extends StatelessWidget {
@@ -23,15 +23,15 @@ class CheckOutView extends StatelessWidget {
                 const EditingRow(
                   text: "Shipping Address",
                 ),
-                Gap(10.h),
+                Gap(5.h),
                 const ShippingAddress(),
                 const EditingRow(text: "Payment"),
                 const PaymentRow(),
-                Gap(10.h),
+                Gap(5.h),
                 const EditingRow(text: "Delivery method"),
                 const DeliveryMethod(),
-                Gap(50.h),
-                const SubmitOrderButtom(),
+                const Spacer(),
+                const SubmitOrderButton(),
               ],
             ),
           ),

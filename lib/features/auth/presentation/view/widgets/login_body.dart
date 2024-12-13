@@ -1,13 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
+import 'package:furniture_shoppin_ui/core/functions/show_toast.dart';
 import 'package:furniture_shoppin_ui/core/services/auth_service.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/email_filed.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/forgot_password_filed.dart';
-import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/login_buttom.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/login_button.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/or_divider.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/password_filed.dart';
-import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/signup_row.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/sighup_row.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/home_view.dart';
 import 'package:gap/gap.dart';
 import 'package:get_it/get_it.dart';
@@ -66,24 +69,38 @@ class _LoginBodyState extends State<LoginBody> {
                   emailController: emailController,
                 ),
                 const Gap(40),
-                LoginButtom(
+                LoginButton(
                   emailController: emailController,
                   globalKey: globalKey,
                   passwordController: passwordController,
                   onSuccess: () async {
+                    log("login succeed");
                     final success = await authService.login(
-                        emailController.text, passwordController.text);
+                        context, emailController.text, passwordController.text);
+                    log(success.toString());
                     if (success && context.mounted) {
-                      navRplacement(
-                        context,
-                        const HomeView(),
-                      );
+                      if (authService.currentUser!.emailVerified) {
+                        navRplacement(
+                          context,
+                          const HomeView(),
+                        );
+                      } else {
+                        await authService.verifyEmail(context);
+                        if (mounted) {
+                          showToast(
+                              // ignore: use_build_context_synchronously
+                              context: context,
+                              text: "Please verify your email");
+                        } else {
+                          log("Widget is no longer mounted. Toast not shown.");
+                        }
+                      }
                     }
                   },
                 ),
                 const Gap(15),
                 const OrDivider(),
-                const SignupRow(),
+                const SighupRow(),
               ],
             ),
           ),

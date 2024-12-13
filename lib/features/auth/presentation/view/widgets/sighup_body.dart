@@ -1,5 +1,7 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
+import 'package:furniture_shoppin_ui/core/functions/show_toast.dart';
 import 'package:furniture_shoppin_ui/core/services/auth_service.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/login_view.dart';
@@ -8,20 +10,20 @@ import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/ema
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/name_filed.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/password_filed.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/signin_row.dart';
-import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/signup_buttom.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/sighup_button.dart';
 import 'package:gap/gap.dart';
 import 'package:get_it/get_it.dart';
 
-class SignupBody extends StatefulWidget {
-  const SignupBody({
+class SighupBody extends StatefulWidget {
+  const SighupBody({
     super.key,
   });
 
   @override
-  State<SignupBody> createState() => _SignupBodyState();
+  State<SighupBody> createState() => _SighupBodyState();
 }
 
-class _SignupBodyState extends State<SignupBody> {
+class _SighupBodyState extends State<SighupBody> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
@@ -68,21 +70,41 @@ class _SignupBodyState extends State<SignupBody> {
                     confirmPasswordController: confirmPasswordController,
                     passwordController: passwordController),
                 const Gap(60),
-                SignupButtom(
+                SighupButton(
                   emailController: emailController,
                   nameController: nameController,
                   passwordController: passwordController,
                   formkey: formkey,
                   onSuccess: () async {
-                    await authService.signup(
-                        emailController.text, passwordController.text);
-                    if (context.mounted) {
-                      authService.verifyEmail(context);
-                      navRplacement(
-                        context,
-                        const LoginView(),
-                      );
-                    }
+                    log(formkey.currentState!.validate().toString());
+                    await authService
+                        .sighup(
+                      context,
+                      emailController.text,
+                      passwordController.text,
+                    )
+                        .then((success) {
+                      if (success && context.mounted) {
+                        authService.verifyEmail(context);
+                        showToast(
+                            context: context,
+                            text:
+                                "success we send Verification link to your email",
+                            color: Colors.green,
+                            icon: Icons.check);
+                        navRplacement(
+                          context,
+                          const LoginView(),
+                        );
+                      }
+                    }).catchError((error) {
+                      showToast(
+                          context: mounted ? context : null,
+                          text: "unknown Error during sign-up, try again later",
+                          color: Colors.red,
+                          icon: Icons.error);
+                      log('Error during sign-up: $error');
+                    });
                   },
                 ),
                 const Gap(20),

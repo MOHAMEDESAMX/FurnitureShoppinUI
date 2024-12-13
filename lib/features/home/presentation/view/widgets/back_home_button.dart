@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/main_screen_view.dart';
 
-class BackHomeButtom extends StatelessWidget {
-  const BackHomeButtom({
+class BackHomeButton extends StatelessWidget {
+  const BackHomeButton({
     super.key,
   });
 
@@ -30,7 +30,7 @@ class BackHomeButtom extends StatelessWidget {
         child: Text(
           "BACK TO HOME",
           style:
-              Styles.textstylebuttom18.copyWith(color: const Color(0XFF303030)),
+              Styles.textstylebutton18.copyWith(color: const Color(0XFF303030)),
         ),
       ),
     );

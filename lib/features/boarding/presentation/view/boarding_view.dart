@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture_shoppin_ui/core/constants/assets_images.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
-//import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
-import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
+import 'package:furniture_shoppin_ui/core/shared_widgets/custom_button.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/login_view.dart';
 
@@ -25,27 +25,27 @@ class BoardingView extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 231,
-            left: 30,
+            top: 231.h,
+            left: 30.w,
             child: Text(
               "MAKE YOUR",
               style: Styles.textstyle24,
             ),
           ),
           Positioned(
-            top: 276,
-            left: 30,
+            top: 276.h,
+            left: 30.w,
             child: Text(
               "HOME BEAUTIFUL",
               style: Styles.textstyle30,
             ),
           ),
           Positioned(
-            left: 59,
-            top: 349,
+            left: 59.w,
+            top: 349.h,
             child: SizedBox(
-              width: 286,
-              height: 105,
+              width: 286.w,
+              height: 120.h,
               child: Text(
                 "The best simple place where you discover most wonderful furnitures and make your home beautiful",
                 style: Styles.textstyle18,
@@ -53,12 +53,12 @@ class BoardingView extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 300,
-            left: 380,
+            bottom: 50.h,
+            left: 100.w,
             child: SizedBox(
-              width: 160,
-              height: 55,
-              child: CustomButtom(
+              width: 160.w,
+              height: 60.h,
+              child: CustomButton(
                 onPressed: () {
                   navRplacement(
                     context,

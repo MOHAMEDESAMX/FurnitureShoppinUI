@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
+import 'dart:developer';
 
-class SignupButtom extends StatelessWidget {
-  const SignupButtom({
+import 'package:flutter/material.dart';
+import 'package:furniture_shoppin_ui/core/shared_widgets/custom_button.dart';
+
+class SighupButton extends StatelessWidget {
+  const SighupButton({
     super.key,
     required this.formkey,
     required this.nameController,
@@ -22,7 +24,7 @@ class SignupButtom extends StatelessWidget {
       child: SizedBox(
         width: 285,
         height: 50,
-        child: CustomButtom(
+        child: CustomButton(
           text: "SIGN UP",
           onPressed: () {
             if (formkey.currentState!.validate()) {
@@ -30,10 +32,11 @@ class SignupButtom extends StatelessWidget {
                 //tosto
               } else if (!emailController.text.contains("@")) {
                 //tosto
-              } else if (passwordController.text.length < 8) {
+              } else if (passwordController.text.length < 4) {
                 //tosto
               } else {
-                onSuccess;
+                log("onsuccess");
+                onSuccess();
               }
             }
           },

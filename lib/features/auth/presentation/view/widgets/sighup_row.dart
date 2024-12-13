@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
-import 'package:furniture_shoppin_ui/features/auth/presentation/view/signup_view.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/sighup_view.dart';
 
-class SignupRow extends StatelessWidget {
-  const SignupRow({
+class SighupRow extends StatelessWidget {
+  const SighupRow({
     super.key,
   });
 
@@ -16,11 +16,11 @@ class SignupRow extends StatelessWidget {
         height: 50,
         child: TextButton(
           onPressed: () {
-            navRplacement(context, const SignupView());
+            navRplacement(context, const SighupView());
           },
           child: Text(
             "SIGN UP",
-            style: Styles.textstylebuttom18.copyWith(
+            style: Styles.textstylebutton18.copyWith(
               color: const Color(0xff303030),
             ),
           ),

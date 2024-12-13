@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
-import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
+import 'package:furniture_shoppin_ui/core/shared_widgets/custom_button.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/model_view/products_list.dart';
 
@@ -35,9 +35,9 @@ class ProductAddToRow extends StatelessWidget {
         SizedBox(
           width: 250.w,
           height: 60.h,
-          child: CustomButtom(
+          child: CustomButton(
             text: "Add to cart",
-            textStyle: Styles.textstylebuttom18.copyWith(
+            textStyle: Styles.textstylebutton18.copyWith(
               fontSize: 20,
             ),
             onPressed: () {

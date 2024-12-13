@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_shoppin_ui/core/funcations/naviagtions.dart';
-import 'package:furniture_shoppin_ui/core/shared_widgets/custom_buttom.dart';
+import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
+import 'package:furniture_shoppin_ui/core/shared_widgets/custom_button.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/model_view/products_list.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/check_out_view.dart';
@@ -18,7 +18,7 @@ class MyCartView extends StatefulWidget {
 
 class _MyCartViewState extends State<MyCartView> {
   double itemsCount = 0;
-  final TextEditingController promocode =TextEditingController();
+  final TextEditingController promocodeController =TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +100,7 @@ class _MyCartViewState extends State<MyCartView> {
                                           setState(() {});
                                           mySnakeBar(
                                             context,
-                                            "Removed Succeefuly",
+                                            "Removed successfully",
                                             Colors.red,
                                           );
                                         },
@@ -121,7 +121,7 @@ class _MyCartViewState extends State<MyCartView> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       TextField(
-                        controller: promocode,
+                        controller: promocodeController,
                         decoration: InputDecoration(
                           hintText: "Enter your promo code",
                           suffixIcon: IconButton(
@@ -155,7 +155,7 @@ class _MyCartViewState extends State<MyCartView> {
                       SizedBox(
                         width: double.infinity,
                         height: 50.h,
-                        child: CustomButtom(
+                        child: CustomButton(
                           onPressed: (){
                             navpush(context, const CheckOutView(),);
                           },text: "Check out",),
