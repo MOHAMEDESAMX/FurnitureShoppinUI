@@ -14,16 +14,16 @@ import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/sig
 import 'package:gap/gap.dart';
 import 'package:get_it/get_it.dart';
 
-class SighupBody extends StatefulWidget {
-  const SighupBody({
+class SignupBody extends StatefulWidget {
+  const SignupBody({
     super.key,
   });
 
   @override
-  State<SighupBody> createState() => _SighupBodyState();
+  State<SignupBody> createState() => _SignupBodyState();
 }
 
-class _SighupBodyState extends State<SighupBody> {
+class _SignupBodyState extends State<SignupBody> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
@@ -34,7 +34,7 @@ class _SighupBodyState extends State<SighupBody> {
       TextEditingController();
 
   final GlobalKey<FormState> formkey = GlobalKey();
-
+  bool isLoading = false;
   final GetIt getIt = GetIt.instance;
   late AuthService authService;
   @override
@@ -70,43 +70,57 @@ class _SighupBodyState extends State<SighupBody> {
                     confirmPasswordController: confirmPasswordController,
                     passwordController: passwordController),
                 const Gap(60),
-                SighupButton(
-                  emailController: emailController,
-                  nameController: nameController,
-                  passwordController: passwordController,
-                  formkey: formkey,
-                  onSuccess: () async {
-                    log(formkey.currentState!.validate().toString());
-                    await authService
-                        .sighup(
-                      context,
-                      emailController.text,
-                      passwordController.text,
-                    )
-                        .then((success) {
-                      if (success && context.mounted) {
-                        authService.verifyEmail(context);
-                        showToast(
-                            context: context,
-                            text:
-                                "success we send Verification link to your email",
-                            color: Colors.green,
-                            icon: Icons.check);
-                        navRplacement(
-                          context,
-                          const LoginView(),
-                        );
-                      }
-                    }).catchError((error) {
-                      showToast(
-                          context: mounted ? context : null,
-                          text: "unknown Error during sign-up, try again later",
-                          color: Colors.red,
-                          icon: Icons.error);
-                      log('Error during sign-up: $error');
-                    });
-                  },
-                ),
+                isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : SighupButton(
+                        emailController: emailController,
+                        nameController: nameController,
+                        passwordController: passwordController,
+                        formkey: formkey,
+                        onSuccess: () async {
+                          setState(() {
+                            isLoading = true;
+                          });
+                          log(formkey.currentState!.validate().toString());
+                          await authService
+                              .signup(
+                            context,
+                            emailController.text,
+                            passwordController.text,
+                          )
+                              .then((success) {
+                            if (success && context.mounted) {
+                              setState(() {
+                                isLoading = false;
+                              });
+                              authService.verifyEmail(context);
+                              showToast(
+                                  context: context,
+                                  text:
+                                      "success we send Verification link to your email",
+                                  color: Colors.green,
+                                  icon: Icons.check);
+                              navRplacement(
+                                context,
+                                const LoginView(),
+                              );
+                            }
+                          }).catchError((error) {
+                            setState(() {
+                              isLoading = false;
+                            });
+                            showToast(
+                                context: mounted ? context : null,
+                                text:
+                                    "unknown Error during sign-up, try again later",
+                                color: Colors.red,
+                                icon: Icons.error);
+                            log('Error during sign-up: $error');
+                          });
+                        },
+                      ),
                 const Gap(20),
                 const SigninRow()
               ],

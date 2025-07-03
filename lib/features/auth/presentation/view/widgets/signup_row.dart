@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
-import 'package:furniture_shoppin_ui/features/auth/presentation/view/sighup_view.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/signup_view.dart';
 
-class SighupRow extends StatelessWidget {
-  const SighupRow({
+class SignupRow extends StatelessWidget {
+  const SignupRow({
     super.key,
   });
 

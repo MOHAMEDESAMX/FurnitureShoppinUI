@@ -40,6 +40,7 @@ class SuccessOrderView extends StatelessWidget {
             ),
             Gap(20.h),
             const TrackOrderButton(),
+            Gap(20.h),
             const BackHomeButton(),
           ]),
         ),

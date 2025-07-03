@@ -10,7 +10,7 @@ import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/for
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/login_button.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/or_divider.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/password_filed.dart';
-import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/sighup_row.dart';
+import 'package:furniture_shoppin_ui/features/auth/presentation/view/widgets/signup_row.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/home_view.dart';
 import 'package:gap/gap.dart';
 import 'package:get_it/get_it.dart';
@@ -33,6 +33,7 @@ class _LoginBodyState extends State<LoginBody> {
 
   final GetIt getIt = GetIt.instance;
   late AuthService authService;
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
@@ -69,38 +70,52 @@ class _LoginBodyState extends State<LoginBody> {
                   emailController: emailController,
                 ),
                 const Gap(40),
-                LoginButton(
-                  emailController: emailController,
-                  globalKey: globalKey,
-                  passwordController: passwordController,
-                  onSuccess: () async {
-                    log("login succeed");
-                    final success = await authService.login(
-                        context, emailController.text, passwordController.text);
-                    log(success.toString());
-                    if (success && context.mounted) {
-                      if (authService.currentUser!.emailVerified) {
-                        navRplacement(
-                          context,
-                          const HomeView(),
-                        );
-                      } else {
-                        await authService.verifyEmail(context);
-                        if (mounted) {
-                          showToast(
-                              // ignore: use_build_context_synchronously
-                              context: context,
-                              text: "Please verify your email");
-                        } else {
-                          log("Widget is no longer mounted. Toast not shown.");
-                        }
-                      }
-                    }
-                  },
-                ),
+                isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : LoginButton(
+                        emailController: emailController,
+                        globalKey: globalKey,
+                        passwordController: passwordController,
+                        onSuccess: () async {
+                          setState(() {
+                            isLoading = true;
+                            Future.delayed(const Duration(seconds: 2));
+                          });
+                          log("login succeed");
+                          final success = await authService.login(context,
+                              emailController.text, passwordController.text);
+                          log(success.toString());
+                          if (success && context.mounted) {
+                            setState(() {
+                              isLoading = false;
+                            });
+                            if (authService.currentUser!.emailVerified) {
+                              navRplacement(
+                                context,
+                                const HomeView(),
+                              );
+                            } else {
+                              await authService.verifyEmail(context);
+                              if (mounted) {
+                                showToast(
+                                    // ignore: use_build_context_synchronously
+                                    context: context,
+                                    text: "Please verify your email");
+                              } else {
+                                log("Widget is no longer mounted. Toast not shown.");
+                              }
+                            }
+                          }
+                          setState(() {
+                            isLoading = false;
+                          });
+                        },
+                      ),
                 const Gap(15),
                 const OrDivider(),
-                const SighupRow(),
+                const SignupRow(),
               ],
             ),
           ),

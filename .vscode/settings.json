@@ -18,6 +18,8 @@
     "Rplacement",
     "screenutil",
     "shoppin",
+    "Signup",
+    "svgrepo",
     "textstyle",
     "textstyleauth",
     "textstylebutton",
@@ -28,6 +30,7 @@
     "textstylemerr",
     "textstyleproduct",
     "textstyletoast",
-    "tosto"
+    "tosto",
+    "Visibale"
   ]
 }

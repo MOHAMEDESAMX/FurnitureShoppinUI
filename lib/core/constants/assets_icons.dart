@@ -3,7 +3,7 @@ class AssetsIcons {
   static const market = "assets/icons/marker 1.svg";
   static const person = "assets/icons/bi_person.svg";
   static const bell = "assets/icons/bell.svg";
-  
+
   static const popular = "assets/icons/Popular.svg";
   static const chair = "assets/icons/Chair.svg";
   static const table = "assets/icons/Table.svg";
@@ -11,8 +11,8 @@ class AssetsIcons {
   static const bed = "assets/icons/Bed.svg";
   static const lamp = "assets/icons/lamp-svgrepo-com.svg";
   static const shopping = "assets/icons/shopping_bag.svg";
-  static const edit ="assets/icons/edit-2.svg";
-  static const group ="assets/icons/Group.svg";
-  static const checkmark ="assets/icons/checkmark-circle-fill.svg";
-  
+  static const edit = "assets/icons/edit-2.svg";
+  static const group = "assets/icons/Group.svg";
+  static const checkmark = "assets/icons/checkmark-circle-fill.svg";
+  static const logout = "assets/icons/logout.svg";
 }

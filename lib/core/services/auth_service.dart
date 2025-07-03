@@ -35,13 +35,6 @@ class AuthService {
       } else if (e.code == "wrong-password") {
         showToast(context: context, text: "wrong password", icon: Icons.error);
         log("auth/wrong-password");
-      } else if (e.code == "network-request-failed") {
-        showToast(
-            context: context,
-            text: "network request failed, try agin later",
-            icon: Icons.error);
-        log("auth/network-request-failed");
-        return false;
       } else if (e.code == "too-many-requests") {
         showToast(
             context: context,
@@ -58,7 +51,7 @@ class AuthService {
     return false;
   }
 
-  Future<bool> sighup(context, String email, String password) async {
+  Future<bool> signup(context, String email, String password) async {
     try {
       final credential = await firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
