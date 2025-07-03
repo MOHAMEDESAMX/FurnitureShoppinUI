@@ -64,7 +64,7 @@ class Styles {
   );
   static TextStyle textstylemerr16 = GoogleFonts.merriweather(
     fontSize: 16.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.bold,
     color: const Color(0xFF303030),
   );
   static TextStyle textstyle14 = TextStyle(
