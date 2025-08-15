@@ -2,16 +2,23 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_shoppin_ui/core/constants/assets_icons.dart';
-import 'package:furniture_shoppin_ui/core/functions/navigations.dart';
 import 'package:furniture_shoppin_ui/core/functions/show_toast.dart';
 import 'package:furniture_shoppin_ui/core/themes/text_style.dart';
 import 'package:furniture_shoppin_ui/features/auth/presentation/view/login_view.dart';
 
-class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
+class ProfileAppBar extends StatefulWidget implements PreferredSizeWidget {
   const ProfileAppBar({
     super.key,
   });
 
+  @override
+  State<ProfileAppBar> createState() => _ProfileAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _ProfileAppBarState extends State<ProfileAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -31,7 +38,11 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
                 color: Colors.green,
                 icon: Icons.check,
               );
-              navRplacement(context, const LoginView());
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const LoginView()),
+                (Route<dynamic> route) => false,
+              );
+              setState(() {});
             } else {
               showToast(
                 // ignore: use_build_context_synchronously
@@ -49,7 +60,4 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
