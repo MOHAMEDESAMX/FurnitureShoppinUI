@@ -21,15 +21,31 @@ class ProductAddToRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          width: 60.w,
-          height: 60.h,
-          decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(6)),
-          child: const Icon(
-            Icons.bookmark_border,
-            color: Colors.black,
+        InkWell(
+          onTap: () {
+            addToFavorites(
+              Products(
+                title: title,
+                price: price,
+                imageUrl: imageurl,
+              ),
+            );
+            mySnakeBar(
+              context,
+              "Item added to Favorites",
+              Colors.green,
+            );
+          },
+          child: Container(
+            width: 60.w,
+            height: 60.h,
+            decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(6)),
+            child: const Icon(
+              Icons.bookmark_border,
+              color: Colors.black,
+            ),
           ),
         ),
         SizedBox(
@@ -48,11 +64,14 @@ class ProductAddToRow extends StatelessWidget {
                   imageUrl: imageurl,
                 ),
               );
-              mySnakeBar(context, "Item added to cart", Colors.green);
+              mySnakeBar(
+                context,
+                "Item added to cart",
+                Colors.green,
+              );
             },
           ),
         ),
-        
       ],
     );
   }

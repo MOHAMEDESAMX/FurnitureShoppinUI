@@ -48,14 +48,23 @@ List<Products> myProducts = [
       imageUrl: "assets/images/3968901 1.png"),
 ];
 
-List<Products> addedToCart = [
-  
-];
+List<Products> addedToCart = [];
+List<Products> addedToFavorites = [];
 
 void addToCart(Products product) {
   addedToCart.add(product);
   log("${product.title} added to cart.");
 }
-void removeFromCart(index){
+
+void addToFavorites(Products product) {
+  addedToFavorites.add(product);
+  log("${product.title} added to favorites.");
+}
+
+void removeFromCart(index) {
   addedToCart.removeAt(index);
+}
+
+void removeFromFavorites(index) {
+  addedToFavorites.removeAt(index);
 }

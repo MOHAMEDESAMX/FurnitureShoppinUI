@@ -28,7 +28,7 @@ class HomeGridView extends StatelessWidget {
         (context, index) {
           return InkWell(
             onTap: () {
-              navpewScreen(
+              navNewScreen(
                 context,
                 ProductView(
                   imageurl: myProducts[index].imageUrl,
