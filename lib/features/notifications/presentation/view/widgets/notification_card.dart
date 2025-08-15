@@ -34,7 +34,6 @@ class NotificationCard extends StatelessWidget {
         elevation: 5,
         child: Row(
           children: [
-            // Image section
             ClipRRect(
               borderRadius: BorderRadius.circular(14),
               child: Image.asset(

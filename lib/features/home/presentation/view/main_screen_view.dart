@@ -5,7 +5,7 @@ import 'package:furniture_shoppin_ui/core/constants/assets_icons.dart';
 import 'package:furniture_shoppin_ui/features/home/presentation/view/home_view.dart';
 import 'package:furniture_shoppin_ui/features/notifications/presentation/view/notifications_view.dart';
 import 'package:furniture_shoppin_ui/features/profile/presentation/view/profile_view.dart';
-import 'package:furniture_shoppin_ui/features/saved/presentation/view/saved_view.dart';
+import 'package:furniture_shoppin_ui/features/favorites/presentation/view/favorites_view.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class MainScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class MainScreen extends StatelessWidget {
     List<Widget> buildScreens() {
       return [
         const HomeView(),
-        const SavedView(),
+        const FavoritesView(),
         const NotificationsView(),
         const ProfileView(),
       ];
@@ -70,7 +70,6 @@ class MainScreen extends StatelessWidget {
       navBarHeight: kBottomNavigationBarHeight,
       handleAndroidBackButtonPress: true,
       hideNavigationBarWhenKeyboardAppears: true,
-      
       items: navBarsItems(),
       navBarStyle: NavBarStyle.style12, // Set your preferred style here
       backgroundColor: Colors.white,

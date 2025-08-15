@@ -54,7 +54,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           onPressed: () {
-            navpewScreen(context, const MyCartView());
+            navNewScreen(context, const MyCartView());
           },
           icon: Icon(
             Icons.shopping_cart_outlined,

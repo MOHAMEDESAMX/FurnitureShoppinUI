@@ -14,7 +14,7 @@ void navpush(context, widget) {
   );
 }
 
-void navpewScreen(context, widget) {
+void navNewScreen(context, widget) {
   PersistentNavBarNavigator.pushNewScreen(
     context,
     screen: widget,
